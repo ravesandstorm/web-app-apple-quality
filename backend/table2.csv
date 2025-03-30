@@ -1,0 +1,5 @@
+Method,KNN,SVM,Decision Tree,Random Forest,Naive Bayes,Gradient Boosting
+L1 Normalization,0.8755,0.888,0.7952,0.8702,0.757,0.8132
+L2 Normalization,0.8762,0.89,0.7835,0.865,0.755,0.815
+Standard Scale,0.8828,0.8838,0.7965,0.878,0.7435,0.808
+MinMax Scale,0.8812,0.8845,0.792,0.8782,0.7435,0.8095

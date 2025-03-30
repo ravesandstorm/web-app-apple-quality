@@ -1,0 +1,22 @@
+# Ignore Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Ignore FastAPI dependencies
+*.db
+instance/
+
+# Ignore Node.js dependencies
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Ignore compiled and system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
