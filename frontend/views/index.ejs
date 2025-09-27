@@ -728,7 +728,7 @@
         tableBody.innerHTML = '';
 
         try {
-            const response = await fetch('http://localhost:8000/table1/', {
+            const response = await fetch('http://0.0.0.0:8000/table1/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -756,7 +756,7 @@
         tableBody.innerHTML = '';
 
         try {
-            const response = await fetch('http://localhost:8000/table2/', {
+            const response = await fetch('http://0.0.0.0:8000/table2/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -786,7 +786,7 @@
         tableBody.innerHTML = '';
 
         try {
-            const response = await fetch('http://localhost:8000/table3/', {
+            const response = await fetch('http://0.0.0.0:8000/table3/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -811,7 +811,7 @@
     // PREDICTION RESULTS
     async function loadPredictionData() {
         try {
-            const response = await fetch('http://localhost:8000/predict/', {
+            const response = await fetch('http://0.0.0.0:8000/predict/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -908,7 +908,7 @@
             
             try {
                 // Make API call
-                const response = await fetch('http://localhost:8000/input/', {
+                const response = await fetch('http://0.0.0.0:8000/input/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
