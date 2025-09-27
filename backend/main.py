@@ -54,3 +54,7 @@ def process_input(apple_data: AppleInputData):
 
 @app.get("/")
 def read_root(): return {"message": "Welcome to the FastAPI application!"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="localhost", port=8000)

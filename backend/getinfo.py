@@ -5,10 +5,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.decomposition import PCA
+import os
 
 warnings.filterwarnings('ignore')
+CWD = os.getcwd()
+FILEPATH = os.path.join(CWD, 'apple_quality.csv')
 
-df = pd.read_csv('apple_quality.csv')
+df = pd.read_csv(FILEPATH)
 df = df.dropna()
 df['Acidity'] = [float(i) for i in df['Acidity']] # converting string to float
 df['Quality'] = [1 if i=='good' else 0 for i in df['Quality']]
@@ -36,9 +39,14 @@ svm = SVC(C = 90, random_state=42, probability=True)
 svm.fit(x_train, y_train)
 # accuracy_score(y_test, svm.predict(x_test))
 
-d1 = pd.read_csv('table1.csv')
-d2 = pd.read_csv('table2.csv')
-d3 = pd.read_csv('table3.csv')
+D1_PATH = os.path.join(CWD, 'table1.csv')
+D2_PATH = os.path.join(CWD, 'table2.csv')
+D3_PATH = os.path.join(CWD, 'table3.csv')
+
+d1 = pd.read_csv(D1_PATH)
+d2 = pd.read_csv(D2_PATH)
+d3 = pd.read_csv(D3_PATH)
+
 def table1(): return d1.to_dict(orient='records')
 def table2(): return d2.to_dict(orient='records')
 def table3(): return d3.to_dict(orient='records')
