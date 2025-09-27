@@ -92,7 +92,7 @@ Node modules and frontend scripts with **ejs and js** were processed and develop
 
 ### 1️⃣ Clone the Repository  
 
-git clone https://github.com/ishitapradhan19/web-app-apple-quality.git  
+git clone https://github.com/ravesandstorm/web-app-apple-quality.git  
 cd web-app-apple-quality  
 
 ### 2️⃣ Install Backend Dependencies  
