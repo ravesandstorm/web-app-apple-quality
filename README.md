@@ -91,26 +91,32 @@ Node modules and frontend scripts with **ejs and js** were processed and develop
 ## 🚀 How to Run the Application  
 
 ### 1️⃣ Clone the Repository  
-
+```bash
 git clone https://github.com/ravesandstorm/web-app-apple-quality.git  
-cd web-app-apple-quality  
+cd web-app-apple-quality
+```
 
 ### 2️⃣ Install Backend Dependencies  
+```bash
+pip install -r requirements.txt
+```
 
-pip install -r requirements.txt  
-
-### 3️⃣ Start FastAPI Backend  
-
-uvicorn main:app --reload  
-
-### 4️⃣ Install Node.js Dependencies  
-
+### 3️⃣ Install Node.js Dependencies  
+```bash
 cd frontend  
-npm install  
+npm install
+```
 
-### 5️⃣ Start the Web Application  
+### 4️⃣ Start FastAPI Backend
+```bash
+cd backend
+uvicorn main:app --reload
+```
 
-nodemon index.js  
+### 5️⃣ Start Frontend Web Application  
+```bash
+npm run dev
+```
 
 The application will be available at **http://localhost:3000**.  
 
