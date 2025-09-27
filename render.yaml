@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: apple-quality-frontend
+    env: node
+    rootDir: frontend
+    buildCommand: npm install
+    startCommand: npm run build
+    plan: free
+
+  - type: web
+    name: apple-quality-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    plan: free
