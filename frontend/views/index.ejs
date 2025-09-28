@@ -698,14 +698,11 @@
 
 <script>
     // Load data when the page loads
-    const BACKEND_URL = await fetch(
-        "https://apple-quality-backend.onrender.com"
-    )
-    .then(() => "https://apple-quality-backend.onrender.com")
-    .catch(() => "http://localhost:8000");
+    var BACKEND_URL = 'http://localhost:8000';
 
     document.addEventListener('DOMContentLoaded', function() {
         // Load all data immediately
+        loadBackendUrl();
         loadClassificationData();
         loadScalingData();
         loadTuningData();
@@ -729,6 +726,16 @@
     });
 
     // CLASSIFICATION RESULTS
+    async function loadBackendUrl() {
+        BACKEND_URL = await fetch(
+            "https://apple-quality-backend.onrender.com"
+        )
+        .then(() => "https://apple-quality-backend.onrender.com")
+        .catch(() => "http://localhost:8000");
+
+        console.log(`Fetching from ${BACKEND_URL}`);
+    }
+
     async function loadClassificationData() {
         const tableBody = document.querySelector('#resultsTable tbody');
         tableBody.innerHTML = '';
