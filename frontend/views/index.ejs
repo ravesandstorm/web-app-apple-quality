@@ -702,6 +702,10 @@
 
     document.addEventListener('DOMContentLoaded', async function() {
         // Load all data immediately
+        fetch("https://apple-quality-backend.onrender.com/", { method: "GET" })
+        .then(() => console.log("Backend is active!"))
+        .catch(() => console.log("Backend still sleeping..."));
+
         await loadBackendUrl();
         loadClassificationData();
         loadScalingData();
@@ -830,7 +834,6 @@
             });
             const dataArray = await response.json();
             const data = dataArray[0];
-            console.log('Prediction Data:', data);
 
             // Populate features table
             const tableBody = document.querySelector('#predictionTable tbody');

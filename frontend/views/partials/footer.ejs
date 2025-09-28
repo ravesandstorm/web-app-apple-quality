@@ -1,2 +1,27 @@
-</body>
-</html>
+<div id="backend-status" style="display:none; position:fixed; top:10px; left:50%; transform:translateX(-50%);
+            background:#222; color:#fff; padding:10px 20px; border-radius:8px; z-index:9999;">
+    Backend is waking up... please wait ⏳
+</div>
+
+<script>
+    async function checkBackend() {
+        const statusDiv = document.getElementById("backend-status");
+        statusDiv.style.display = "block";
+
+        try {
+            // keep retrying until backend is ready
+            while (true) {
+                let res = await fetch("https://apple-quality-backend.onrender.com/", { method: "GET" });
+                if (res.ok) break; // backend is live
+                await new Promise(r => setTimeout(r, 2000)); // wait 2s before retry
+            }
+            statusDiv.textContent = "Backend is ready ✅";
+            setTimeout(() => statusDiv.style.display = "none", 1000);
+        } catch (err) {
+            statusDiv.textContent = "Backend unavailable ⚠️";
+        }
+    }
+
+    // Call this on load
+    document.addEventListener("DOMContentLoaded", checkBackend);
+</script>
