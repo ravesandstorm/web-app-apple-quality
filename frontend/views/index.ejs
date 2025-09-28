@@ -700,9 +700,9 @@
     // Load data when the page loads
     var BACKEND_URL = 'http://localhost:8000';
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', async function() {
         // Load all data immediately
-        loadBackendUrl();
+        await loadBackendUrl();
         loadClassificationData();
         loadScalingData();
         loadTuningData();
