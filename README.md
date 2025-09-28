@@ -1,6 +1,19 @@
 # 🍏 Machine Learning Web App - Apple Quality Prediction 
 
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+![Node.js](https://img.shields.io/badge/Node.js-18.x-green?logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-Backend-lightgrey?logo=express&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-teal?logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikit-learn)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-purple?logo=pandas)
+![EJS](https://img.shields.io/badge/EJS-Templating-yellow)
+![CSS](https://img.shields.io/badge/CSS-Custom%20UI-blueviolet?logo=css3&logoColor=white)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-Deployment-black?logo=python)
+
 This is a **machine learning web application** project (developed for my college lab practicals) that predicts outcomes based on the [**Apple Quality Prediction**](https://www.kaggle.com/datasets/nelgiriyewithana/apple-quality) dataset. It uses **Node.js with Express.js & EJS**  for the frontend and **FastAPI** for the backend, based on the [kaggle notebook](https://www.kaggle.com/code/ravesandstorm/apple-svm-92-cv) by [Satvik](https://github.com/ravesandstorm/). Developed together with [Ishita Pradhan](https://github.com/ishitapradhan19), who worked on the frontend while I worked on the backend and deployment.
+
+### [Live Demo](https://apple-quality-frontend.onrender.com/)
 
 ## Tech Stack
 ### [Ishita](https://github.com/ishitapradhan19)
