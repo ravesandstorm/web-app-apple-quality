@@ -9,7 +9,19 @@
         statusDiv.style.display = "block";
 
         try {
-            // keep retrying until backend is ready
+            // Try localhost first with timeout
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 100); // 1s timeout for localhost
+            let resLocal = await fetch("http://localhost:8000/", { method: "GET", signal: controller.signal }).catch(() => null);
+            clearTimeout(timeout);
+
+            if (resLocal && resLocal.ok) {
+                statusDiv.textContent = "Local backend is ready ✅";
+                setTimeout(() => statusDiv.style.display = "none", 1000);
+                return;
+            }
+
+            // Otherwise keep retrying Render backend
             while (true) {
                 let res = await fetch("https://apple-quality-backend.onrender.com/", { method: "GET" });
                 if (res.ok) break; // backend is live
@@ -22,6 +34,5 @@
         }
     }
 
-    // Call this on load
     document.addEventListener("DOMContentLoaded", checkBackend);
 </script>
