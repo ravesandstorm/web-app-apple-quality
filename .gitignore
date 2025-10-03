@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 venv/
 .env
+env/
 
 # Ignore FastAPI dependencies
 *.db
@@ -12,6 +13,9 @@ instance/
 
 # Ignore Node.js dependencies
 node_modules/
+dist/
+build/
+.output/
 npm-debug.log
 
 # Ignore compiled and system files

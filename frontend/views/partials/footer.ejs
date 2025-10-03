@@ -3,36 +3,26 @@
     Backend is waking up... please wait ⏳ (<a href="https://apple-quality-backend.onrender.com">Check status</a>)
 </div>
 
-<script>
+<script> 
     async function checkBackend() {
-        const statusDiv = document.getElementById("backend-status");
-        statusDiv.style.display = "block";
-
+        const statusDiv = document.getElementById("backend-status"); statusDiv.style.display = "block";
         try {
-            // Try localhost first with timeout
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 100); // 1s timeout for localhost
-            let resLocal = await fetch("http://localhost:8000/", { method: "GET", signal: controller.signal }).catch(() => null);
-            clearTimeout(timeout);
-
-            if (resLocal && resLocal.ok) {
-                statusDiv.textContent = "Local backend is ready ✅";
-                setTimeout(() => statusDiv.style.display = "none", 1000);
-                return;
+            // try localhost first with timeout
+            let res = await fetch("http://localhost:8000/", { method: "GET" }, setTimeout(() => null, 200));
+            if (res.ok) { 
+                statusDiv.textContent = "Local backend is ready ✅"; setTimeout(() => statusDiv.style.display = "none", 1000); 
             }
-
-            // Otherwise keep retrying Render backend
-            while (true) {
-                let res = await fetch("https://apple-quality-backend.onrender.com/", { method: "GET" });
-                if (res.ok) break; // backend is live
-                await new Promise(r => setTimeout(r, 2000)); // wait 2s before retry
+            else {
+            // keep retrying until backend is ready
+                while (true) {
+                    let res = await fetch("https://apple-quality-backend.onrender.com/", { method: "GET" }); if (res.ok) break; // backend is live 
+                    await new Promise(r => setTimeout(r, 2000)); // wait 2s before retry
+                } 
+                statusDiv.textContent = "Backend is ready on Render ✅"; setTimeout(() => statusDiv.style.display = "none", 1000);
             }
-            statusDiv.textContent = "Backend is ready ✅";
-            setTimeout(() => statusDiv.style.display = "none", 1000);
-        } catch (err) {
-            statusDiv.textContent = "Backend unavailable ⚠️";
-        }
+        } catch (err) { statusDiv.textContent = "Backend unavailable ⚠️"; }
     }
 
-    document.addEventListener("DOMContentLoaded", checkBackend);
+    // Call this on load 
+    document.addEventListener("DOMContentLoaded", checkBackend); 
 </script>

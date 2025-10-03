@@ -731,11 +731,21 @@
 
     // CLASSIFICATION RESULTS
     async function loadBackendUrl() {
-        BACKEND_URL = await fetch(
-            "https://apple-quality-backend.onrender.com"
-        )
-        .then(() => "https://apple-quality-backend.onrender.com")
-        .catch(() => "http://localhost:8000");
+        BACKEND_URL = "http://localhost:8000";
+        console.log("Loading backend URL...");
+        // try fetching from localhost first, otherwise await fetch from render
+        try {
+            await fetch(BACKEND_URL, { method: "GET" }, setTimeout(() => {}, 200));
+        } catch (error) {
+            console.log("Localhost sleeping, trying render...");
+            while(BACKEND_URL == "http://localhost:8000"){
+                BACKEND_URL = await fetch(
+                "https://apple-quality-backend.onrender.com"
+                , setTimeout(() => {}, 2000))
+                .then(() => "https://apple-quality-backend.onrender.com")
+                .catch(() => "http://localhost:8000");
+            }
+        }
 
         console.log(`Fetching from ${BACKEND_URL}`);
     }
