@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Frontend
         working-directory: ./frontend
-        run: npm run dev
+        run: npm run build
 
       # deployment
       - name: Deploy to GitHub Pages
